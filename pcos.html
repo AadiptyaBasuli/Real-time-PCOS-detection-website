@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PCOS Prediction Form</title>
+    <style>
+        /* CSS styles */
+        /* HTML and Body */
+        html, body {
+            margin: 0;
+            padding: 0;
+            /* height: 100%; */
+            background-color: plum; /* Replace 'your-image-url.jpg' with the path to your image */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+             /* Set the height to cover the entire viewport */
+        }
+        .left{
+            display: inline-block;
+            position: absolute;
+            top: 10px;
+            left: 35px;
+            color: black;
+        }
+        .right{
+            display: inline-block;
+            position: absolute;
+            top: 8px;
+            right: 35px;
+        }
+        
+            .center{
+            display: block;
+            height: 70px;
+            width: 510px;
+            margin: 0px auto;
+            top: auto; 
+            color: rgb(3, 0, 0);
+        }
+
+        
+        .navbar{
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+        .navbar li{
+            display: inline-block;
+        }
+        .navbar li a{
+            color:rgb(165, 0, 0);
+            text-decoration: none;
+            padding: 34px 15px;
+        }
+        .navbar li a:hover,.navbar li a.active{
+            text-decoration: underline;
+            color: black;
+        }
+        .left img{
+            width: 100px;
+            height: 20px;
+        }
+        .btn{
+            display: inline-block;
+            padding: 3px 37px; /* Adjust padding as needed */
+            font-size: 14px; /* Adjust font size as needed */
+            font-weight: bold; /* Adjust font weight as needed */
+            text-align: center;
+            text-decoration: none;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px; /* Adjust border radius as needed */
+            background-color: #b14d9d; /* Default background color */
+            color: white; /* Default text color */
+            transition: background-color 0.3s ease;
+        }
+        .btn:hover{
+            color:blue;
+        }
+        .container{
+        border: 2px solid red;
+        margin: 2px 2px;
+        padding: 2px 2px;
+        width: 10px;
+        border-radius:2px;
+        
+    }
+   .div1{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+   }
+/* CSS styles for the form */
+#form {
+    padding: 20px;
+    background-color: #fff;
+    margin: 20px auto;
+    max-width: 600px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#form h2 {
+    margin-top: 0;
+}
+
+#form label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+#form input[type="number"],
+#form select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#form button[type="submit"] {
+    background-color: #b14d9d;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#form button[type="submit"]:hover {
+    background-color: #943c7d;
+}
+
+#form p {
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+/* Login Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    border-radius: 5px;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.form-group button {
+    width: 100%;
+    padding: 8px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+    </style>
+</head>
+<body>
+    <!-- Navigation Section -->
+    <header class="header">
+        <div class="left">
+            <img src="logo.jpg" alt="">
+        </div>
+        <div class="center">
+            <ul class="navbar">
+                <li><a href="#about">Home</a></li>
+                <li><a href="#form">Predict PCOS</a></li>
+                <!-- <li><a href="#contact">Contact Us</a></li>
+                <li><a href="#about-us">About Us</a></li> -->
+                <li><a href="#diet">Diet</a></li>
+            </ul>
+        </div>
+        <div class="right">
+            <button class="btn" onclick="openLoginModal()">Login</button>
+            <!-- <button class="btn" onclick="openSignupModal()">Sign Up</button> -->
+        </div>
+    </header>
+
+    
+
+    <!-- Main Content Section -->
+
+        <!-- About PCOS Section -->
+        <section id="about">
+            
+    
+    <h3>PCOS:</h3>
+    <p>Polycystic ovary syndrome (PCOS) is a condition in which the ovaries produce an abnormal amount of androgens, male sex hormones that are usually present in women in small amounts. The name polycystic ovary syndrome describes the numerous small cysts (fluid-filled sacs) that form in the ovaries. However, some women with this disorder do not have cysts, while some women without the disorder do develop cysts.</p>
+    <p>Ovulation occurs when a mature egg is released from an ovary. This happens so it can be fertilized by a male sperm. If the egg is not fertilized, it is sent out of the body during your period.</p>
+    <p>In some cases, a woman doesn’t make enough of the hormones needed to ovulate. When ovulation doesn’t happen, the ovaries can develop many small cysts. These cysts make hormones called androgens. Women with PCOS often have high levels of androgens. This can cause more problems with a woman’s menstrual cycle. And it can cause many of the symptoms of PCOS.</p>
+    <p>Treatment for PCOS is often done with medication. This can’t cure PCOS, but it helps reduce symptoms and prevent some health problems.</p>
+    <h3>What causes PCOS?</h3>
+    <p>The exact cause of PCOS is not clear. Many women with PCOS have insulin resistance. This means the body can't use insulin well. Insulin levels build up in the body and may cause higher androgen levels. Obesity can also increase insulin levels and make PCOS symptoms worse.</p>
+    <p>PCOS may also run in families. It's common for sisters or a mother and daughter to have PCOS.</p>
+    <h3>What are the risks for PCOS?</h3>
+    <p>You may be more likely to have PCOS if your mother or sister has it. You may also be more likely to have it if you have insulin resistance or are obese.</p>
+    <h3>What are the symptoms of PCOS?</h3>
+    <p>The symptoms of PCOS may include:</p>
+    <ul>
+        <li>Missed periods, irregular periods, or very light periods</li>
+        <li>Ovaries that are large or have many cysts</li>
+        <li>Excess body hair, including the chest, stomach, and back (hirsutism)</li>
+        <li>Weight gain, especially around the belly (abdomen)</li>
+        <li>Acne or oily skin</li>
+        <li>Male-pattern baldness or thinning hair</li>
+        <li>Infertility</li>
+        <li>Small pieces of excess skin on the neck or armpits (skin tags)</li>
+        <li>Dark or thick skin patches on the back of the neck, in the armpits, and under the breasts</li>
+    </ul>
+    <h3>How is PCOS diagnosed?</h3>
+    <p>Your health care provider will ask about your medical history and your symptoms. You will also have a physical exam. This will likely include a pelvic exam. This exam checks the health of your reproductive organs, both inside and outside your body.</p>
+    <p>Some of the symptoms of PCOS are like those caused by other health problems. Because of this, you may also have tests such as ultrasound and blood tests to check for high levels of androgens and other hormones.</p>
+    <h3>How is PCOS treated?</h3>
+    <p>Treatment for PCOS depends on a number of factors, including your age, how severe your symptoms are, and your overall health. The type of treatment may also depend on whether you want to become pregnant in the future.</p>
+    <p>If you do plan to become pregnant, your treatment may include a change in diet and activity, medications to cause ovulation, and other interventions.</p>
+    <p>If you do not plan to become pregnant, your treatment may include birth control pills, diabetes medication, a change in diet and activity, and medications to treat other symptoms.</p>
+    <h3>What are the complications of PCOS?</h3>
+    <p>Women with PCOS are more likely to develop certain serious health problems, including type 2 diabetes, high blood pressure, problems with the heart and blood vessels, and uterine cancer. Women with PCOS often have problems with their ability to get pregnant (fertility).</p>
+        </section>
+
+
+        <section id="diet">
+     <h2>Diet for PCOS: What to Avoid</h2>
+            <p>Research shows that people with PCOS show evidence of all-over inflammation, which is associated with heart disease and other illnesses. The Mediterranean diet eliminates saturated fats, processed meats, and refined sugar, making it a powerful tool to address inflammation. Other well-balanced plans emphasizing non-starchy vegetables, fruits, lean protein, healthy carbs, and low-fat dairy can also help people with PCOS get healthier and prevent complications.</p>
+    
+            <h3>Foods to Avoid with PCOS</h3>
+            <p>Individual foods are seldom the culprits behind conditions such as polycystic ovary disease, and likewise, no single food is likely to be a “magic bullet” to restore health. However, eating too many foods associated with inflammation can aggravate PCOS symptoms and raise the risk of myriad other diseases. People with PCOS should avoid these foods that can ramp up inflammation:</p>
+    <ul>
+        <li>Fried foods (French fries, potato chips, corn chips, fried chicken or fish)</li>
+        <li>Saturated fats such as butter or margarine</li>
+        <li>Red meat, including hamburgers, roast beef, and steaks, processed luncheon meat, and hot dogs</li>
+        <li>Processed snacks: cakes, cookies, candy, and pies</li>
+        <li>Prepared cereal high in sugar, including instant oatmeal, granola</li>
+        <li>Sugary beverages such as sodas, teas, and sports drinks</li>
+        <li>Alcoholic beverages</li>
+        <li>Refined flour, white bread, rolls, pizza crust, and pasta</li>
+        <li>White rice</li>
+    </ul>
+
+    <h3>Best Foods for PCOS</h3>
+    <p>Substituting whole, unprocessed options for inflammatory items can set the stage for better long-term health. Choices such as these from the Mediterranean diet can help you get to a healthy weight and manage PCOS symptoms with plenty of nutrition and great taste:</p>
+    <ul>
+        <li>Omega-3 rich fish, such as salmon, baked, or broiled</li>
+        <li>Olive oil instead of butter or margarine</li>
+        <li>Beans and other protein-rich legumes instead of meat</li>
+        <li>Non-starchy vegetables such as leafy greens (spinach, kale, escarole, endive, lettuce, etc.), tomatoes, mushrooms, peppers, broccoli, cauliflower, snow peas, celery, and fennel</li>
+        <li>Whole grains, such as brown rice, barley, sorghum, and others. Breads and pastas made with whole grains can help people with PCOS avoid spikes in blood sugar</li>
+        <li>Whole fruit for dessert. The fiber content in whole fruit helps you feel full, aids digestion, and slows down the absorption of its sugars into the bloodstream</li>
+    </ul>
+        </section>
+
+        <!-- PCOS Prediction Form Section -->
+        <section id="form">
+            <h2>PCOS Prediction Form</h2>
+            <!-- Your form goes here -->
+            <form id="pcosForm" onsubmit="return predictPCOS()">
+                <!-- Form elements -->
+                <!-- Add your form elements here -->
+                <!-- For example:
+                <label for="periodLength">Period Length (days):</label>
+                <input type="number" id="periodLength" name="periodLength" required>
+                -->
+
+                <main>
+                    <!-- PCOS Prediction Form Section -->
+                    <section id="form">
+                        
+                        <form id="pcosForm" onsubmit="return predictPCOS()">
+                            <!-- Period and Cycle Length -->
+                            <label for="periodLength">Period Length (days):</label>
+                            <input type="number" id="periodLength" name="periodLength" required>
+            
+                            <label for="cycleLength">Cycle Length (days):</label>
+                            <select id="cycleLength" name="cycleLength">
+                                <option value="6">below 20</option>
+                                <option value="1">20-24 days</option>
+                                <option value="2">20-28 days</option>
+                                <option value="3">25-28 days</option>
+                                <option value="4">29-35 days</option>
+                                <option value="5">36+ days</option>
+                            </select>
+            
+                            <!-- Demographic Information -->
+                            <label for="age">Age:</label>
+                            <input type="number" id="age" name="age" required>
+            
+                            <!-- PCOS and Related Features -->
+            
+                            <label for="overweight">Overweight:</label>
+                            <select id="overweight" name="overweight">
+                                <option value="yes">Yes</option>
+                                <option value="no">No</option>
+                            </select>
+            
+                            <label for="weightLossGain">Weight Loss/Gain:</label>
+                            <select id="weightLossGain" name="weightLossGain">
+                                <option value="yes">Yes</option>
+                                <option value="no">No</option>
+                            </select>
+            
+                            <label for="irregularPeriod">Irregular or Missed Period:</label>
+                            <select id="irregularPeriod" name="irregularPeriod">
+                                <option value="yes">Yes</option>
+                                <option value="no">No</option>
+                            </select>
+            
+                            <label for="difficultyConceiving">Difficulty in Conceiving:</label>
+                            <select id="difficultyConceiving" name="difficultyConceiving">
+                                <option value="yes">Yes</option>
+                                <option value="no">No</option>
+                            </select>
+            
+                            <!-- Hair Growth Related Features -->
+                            <label for="hairGrowthChin">Hair Growth on Chin:</label>
+                            <select id="hairGrowthChin" name="hairGrowthChin">
+                                <option value="0">Normal</option>
+                                <option value="1">Moderate</option>
+                                <option value="2">Excessive</option>
+                            </select>
+            
+                            <label for="hairGrowthCheeks">Hair Growth on Cheeks:</label>
+                            <select id="hairGrowthCheeks" name="hairGrowthCheeks">
+                                <option value="yes">Yes</option>
+                                <option value="no">No</option>
+                            </select>
+                            <label for="hairGrowthBwBreast">Hair growth Between breast:</label>
+                            <select id="hairGrowthBwBreast" name="hairGrowthBwBreast">
+                                <option value="yes">Yes</option>
+                                <option value="no">No</option>
+                            </select>
+                            <label for="hairGrowthUpLips">Hair growth  on Upper lips:</label>
+                            <select id="hairGrowthUpLips" name="hairGrowthUpLips">
+                                <option value="yes">Yes</option>
+                                <option value="no">No</option>
+                            </select>
+                            <label for="weightGainHips">Weight gain on Hips:</label>
+                            <select id="weightGainHips" name="weightGainHips">
+                                <option value="yes">Yes</option>
+                                <option value="no">No</option>
+                            </select>
+                            <label for="weightGainBelly">Weight gain on Belly:</label>
+                            <select id="weightGainBelly" name="weightGainBelly">
+                                <option value="yes">Yes</option>
+                                <option value="no">No</option>
+                            </select>
+            
+                            <!-- Skin Problems Related Features -->
+                            <label for="acne">Acne:</label>
+                            <select id="acne" name="acne">
+                                <option value="0">Normal</option>
+                                <option value="1">Moderate</option>
+                                <option value="2">Excessive</option>
+                            </select>
+            
+                            <label for="darkSkinPatches">Dark skin patches:</label>
+                            <select id="darkSkinPatches" name="darkSkinPatches">
+                                <option value="0">Normal</option>
+                                <option value="1">Moderate</option>
+                                <option value="2">Excessive</option>
+                            </select>
+            
+                            <!-- Submit Button -->
+                            <button type="submit">Predict PCOS</button>
+                        </form>
+            
+                    </section>
+            
+                    <!-- Prediction Result -->
+                    <section id="result">
+                        <p id="predictionResult"></p>
+                    </section>
+                </main>
+
+            </form>
+        </section>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeLoginModal()">&times;</span>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <div class="form-group">
+                <button onclick="login()">Login</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript code
+        
+        // Function to open the login modal
+        function openLoginModal() {
+            document.getElementById("loginModal").style.display = "block";
+        }
+
+        // Function to close the login modal
+        function closeLoginModal() {
+            document.getElementById("loginModal").style.display = "none";
+        }
+
+        // Function to simulate login (you can replace this with your actual login function)
+        function login() {
+            var email = document.getElementById("email").value;
+            var password = document.getElementById("password").value;
+            // Here you can add your login logic, such as sending a request to the server to verify credentials
+            // For demonstration purposes, let's just log the email and password to the console
+            console.log("Email: " + email);
+            console.log("Password: " + password);
+            // After successful login, you can redirect the user to another page or perform other actions
+            // For now, let's just close the modal
+            closeLoginModal();
+        }
+
+        // Function to predict PCOS
+        function predictPCOS() {
+            // Get form data
+            var periodLength = document.getElementById("periodLength").value;
+            var cycleLength = document.getElementById("cycleLength").value;
+            var age = document.getElementById("age").value;
+            var overweight = document.getElementById("overweight").value;
+            var weightLossGain = document.getElementById("weightLossGain").value;
+            var irregularPeriod = document.getElementById("irregularPeriod").value;
+            var difficultyConceiving = document.getElementById("difficultyConceiving").value;
+            var hairGrowthChin = document.getElementById("hairGrowthChin").value;
+            var hairGrowthCheeks = document.getElementById("hairGrowthCheeks").value;
+            var hairGrowthBwBreast = document.getElementById("hairGrowthBwBreast").value;
+            var hairGrowthUpLips = document.getElementById("hairGrowthUpLips").value;
+            var weightGainHips = document.getElementById("weightGainHips").value;
+            var weightGainBelly = document.getElementById("weightGainBelly").value;
+            var acne = document.getElementById("acne").value;
+            var darkSkinPatches = document.getElementById("darkSkinPatches").value;
+
+            // Perform PCOS prediction (replace this with your prediction logic)
+            // For demonstration purposes, let's assume if age is less than 30, predict PCOS; otherwise, predict no PCOS
+            var prediction = (age < 30) ? "You may have PCOS." : "You may not have PCOS.";
+
+            // Display prediction result
+            document.getElementById("predictionResult").innerText = prediction;
+
+            // Prevent form submission
+            return false;
+        }
+    </script>
+</body>
+</html>
